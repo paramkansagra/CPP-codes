@@ -67,31 +67,6 @@ void deleteNodePos(Node* &head,Node* &tail, int pos){
     }
 }
 
-// inserting the node at a position // O(n)
-void insertAtPosition(Node* &head,Node* &tail,int pos,int d){
-
-    if(pos == 1){
-        insertAtHead(head,d);
-        return ;
-    }
-
-    Node* temp = head; // creating new node for d
-    Node* insert = new Node(d);
-
-    int count = 1;
-    while(count<pos-1){
-        temp = temp->next;
-        count++;
-    }
-
-    if(temp->next == NULL){ // inserting at last pos
-        tail = insert;
-    }
-
-    insert->next = temp->next;
-    temp->next = insert;
-}
-
 
 // traversing a ll // time complexity O(n)
 void print(Node* &head){
@@ -114,12 +89,8 @@ int main(){
 
     print(head);
 
-    cout<<"Head "<<head->data<<" Tail "<<tail->data<<endl;
-
-    deleteNodePos(head,tail,4);
+    deleteNodePos(head,tail,2);
     print(head);
-
-    cout<<"Head "<<head->data<<" Tail "<<tail->data<<endl;
 
     return 0;
 }
